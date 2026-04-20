@@ -1,0 +1,904 @@
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#000;
+    color:white;
+}
+
+/* Header */
+.site-header{
+    position:sticky;
+    top:0;
+    background:#000;
+    z-index:100;
+    padding:15px 30px;
+    box-shadow:0 1px 6px rgba(0,0,0,0.4);
+}
+.header-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.logo{
+    font-weight:bold;
+    font-size:30px;
+    color:#078b8e;
+    text-decoration:none;
+}
+/* Header Links Styling */
+.nav a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 18px; /* বড় করতে চাইলে বাড়াও */
+    position: relative; /* underline এর জন্য */
+    padding-bottom: 5px;
+    transition: color 0.3s;
+}
+
+/* Hover effect */
+.nav a:hover {
+    color: #078b8e; /* লিংকের রঙ পরিবর্তন */
+}
+
+/* Hover এর নিচে লাইন animation */
+.nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    background-color: #078b8e;
+    transition: width 0.3s;
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+
+/* Hero */
+.hero-lucius{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    height:90vh;
+    padding:0 50px;
+    flex-wrap:wrap;
+}
+.hero-left{
+    max-width:600px;
+}
+.hero-left h1{
+    font-size:40px; 
+    margin:0 0 10px;
+}
+.hero-left h2{
+    font-size:50px; 
+    margin:0 0 10px;
+}
+.hero-left h3{
+    font-size:28px;
+     margin:0 0 15px;
+}
+.hero-left h3 span{
+    color:#078b8e;
+}
+.hero-left p{
+   margin-bottom:20px;
+   font-size:20px;
+}
+/* Hire Me Button */
+.btn {
+    padding: 12px 25px;
+    background: #078b8e;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 2px solid transparent; /* বর্ডার হোভার এ দেখাবে */
+}
+
+/* Button Hover */
+.btn:hover {
+    background: #000;
+    color: #078b8e;
+    border: 2px solid #078b8e;
+    box-shadow: 0 0 10px #078b8e;
+}
+
+/* Social Icons */
+/* Social Icons */
+.social-icons {
+    margin-top: 20px;
+    display: flex;
+    gap: 8px; /* আগের 10px থেকে কমানো */
+}
+
+.social-icons a {
+    color: #078b8e;
+    font-size: 24px; /* বড় করা হয়েছে */
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;   /* আইকনের box বড় করা হয়েছে */
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+/* Social Icon Hover */
+.social-icons a:hover {
+    color: #000;               /* রঙ পরিবর্তন */
+    background: #078b8e;       /* ব্যাকগ্রাউন্ড কালার */
+    border: 2px solid #078b8e; /* বর্ডার */
+    box-shadow: 0 0 10px #078b8e; /* subtle glow */
+    transform: scale(1);        /* সাইজ অপরিবর্তিত থাকবে */
+}
+
+/* Hero right image */
+.hero-right{
+    position:relative;
+    width:450px;
+    height:450px;
+}
+.circle{
+    width:90%;
+    height:90%;
+    border:5px solid #078b8e; /* Gol line */
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    /* animation remove kora holo */
+}
+.circle img{
+    width:90%;
+    height:90%;
+    border-radius:50%;
+    /* image rotate kora hobe na */
+}
+
+@keyframes rotateCircle{
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+}
+
+/* Responsive */
+@media(max-width:900px){
+    .hero-lucius{flex-direction:column-reverse;text-align:center;}
+    .hero-right{margin-bottom:30px;}
+    .nav{display:none;}
+    .nav-toggle{display:block;}
+}
+.nav.open{display:flex; flex-direction:column; gap:10px; margin-top:10px;}
+
+
+/* ===== Global Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* ===== Home Page ===== */
+body.home-page {
+    background-color: #000;
+    color: #fff;
+}
+
+body.home-page header {
+    background-color: #000;
+}
+
+body.home-page header .nav {
+    margin-left: auto; /* links right side */
+    display: flex;
+    gap: 30px;
+}
+
+
+
+
+
+
+/* ===== About Page ===== */
+body.about-page {
+    background-color: #000;
+    color: #fff;
+}
+
+/* ===== Header ===== */
+body.about-page header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px; /* home page-এর মতো padding */
+    background-color: #000;
+    position: sticky;   /* sticky top */
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.4); /* same as home */
+}
+
+/* Logo */
+body.about-page header .logo {
+    font-weight: bold;
+    font-size: 34px; /* home page-এর মতো */
+    color: #078b8e;
+    text-decoration: none;
+}
+
+/* Navigation */
+body.about-page header nav {
+    display: flex;
+    gap: 30px; /* home page-এর মতো gap */
+}
+
+/* Nav links */
+body.about-page header nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 20px; /* home page-এর মতো বড় size */
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s;
+}
+
+/* Hover color */
+body.about-page header nav a:hover {
+    color: #078b8e;
+}
+
+/* Hover underline */
+body.about-page header nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    background-color: #078b8e;
+    transition: width 0.3s;
+}
+
+body.about-page header nav a:hover::after {
+    width: 100%;
+}
+
+/* ===== About Hero ===== */
+body.about-page .about-hero {
+    text-align: center;
+    padding: 120px 20px 20px 20px; /* 🔽 নিচের padding কমানো */
+    background-color: #000;
+}
+
+
+body.about-page .about-hero h1 {
+    font-size: 48px;
+    font-weight: bold;
+    color: #fff;
+}
+
+body.about-page .about-hero h1::after {
+    content: '';
+    display: block;
+    width: 10%;      /* smaller underline */
+    height: 3px;
+    background-color: #078b8e; /* color update */
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* ===== About Sections ===== */
+body.about-page .about-section {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;   /* 🔽 আগে 50px ছিল */
+    padding: 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+body.about-page .about-section h2 {
+    width: 100%;
+    font-size: 32px;
+    color: #078b8e;
+    margin-bottom: 10px; /* 🔽 আগে 20px */
+    margin-top: 0;       /* 🔥 important */
+    text-align: center;
+}
+
+
+/* ===== Cards ===== */
+body.about-page .card {
+    background-color: #111;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: transform 0.4s, box-shadow 0.4s;
+    flex: 0 1 calc(50% - 20px); /* এক লাইনে 2 card */
+    box-sizing: border-box;
+}
+
+body.about-page .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px #078b8e; /* glow effect */
+}
+
+body.about-page .card h3 {
+    margin-bottom: 10px;
+}
+
+body.about-page .card p {
+    line-height: 1.6;
+}
+
+/* Mobile Responsive: এক column করে দেখাবে */
+@media screen and (max-width: 768px) {
+    body.about-page .about-section .card {
+        flex: 0 1 100%;
+    }
+}
+
+/* ===== Skills ===== */
+body.about-page .skills-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+body.about-page .skill {
+    width: 100px;
+    height: 100px;
+    background-color: #222;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    cursor: pointer;
+    transition: transform 0.4s, box-shadow 0.4s;
+}
+
+body.about-page .skill:hover {
+    transform: rotateY(360deg) scale(1.2);
+    box-shadow: 0 0 20px #078b8e; /* glow effect */
+}
+
+
+
+
+
+
+/* ===== Services Page ===== */
+body.services-page {
+    background-color: #000;
+    color: #fff;
+}
+
+/* Header same as About/Home */
+body.services-page header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #000;
+}
+
+/* Header Logo - Home page এর মতো */
+body.services-page header .logo {
+    font-weight: bold;
+    font-size: 34px; /* Home page এর মতো */
+    color: #078b8e;
+    text-decoration: none;
+}
+
+/* Header Links */
+body.services-page header nav {
+    margin-left: auto;
+    display: flex;
+    gap: 30px; /* Home page এর মতো gap */
+}
+
+/* Header Links - Bigger + Hover (Home About etc) */
+body.services-page header nav a {
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s;
+    font-size: 20px; /* Home page এর মতো বড় করা হলো */
+    font-weight: 500;
+    margin-left: 0; /* gap already parent flex gap-এ আছে */
+}
+
+body.services-page header nav a:hover {
+    color: #078b8e;
+}
+
+body.services-page header nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #078b8e;
+    left: 0;
+    bottom: -4px;
+    transition: 0.3s;
+}
+
+body.services-page header nav a:hover::after {
+    width: 100%;
+}
+
+/* ===== Services Hero ===== */
+body.services-page .services-hero {
+    text-align: center;
+    padding: 150px 20px 50px 20px;
+    background-color: #000;
+}
+
+body.services-page .services-hero h1 {
+    font-size: 50px;
+    font-weight: bold;
+    color: #fff;
+}
+
+body.services-page .services-hero h1::after {
+    content: '';
+    display: block;
+    width: 10%;
+    height: 3px;
+    background-color: #078b8e;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* ===== Services Section ===== */
+body.services-page .services-section {
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+body.services-page .service-card {
+    background-color: #111;
+    color: #fff;
+    flex: 0 1 calc(50% - 20px); /* 2 per row */
+    padding: 30px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column; /* icon উপরে text নিচে */
+    align-items: flex-start; /* icon left side */
+    gap: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: transform 0.4s, box-shadow 0.4s;
+}
+
+body.services-page .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px #078b8e;
+}
+
+/* Icon */
+body.services-page .service-card i {
+    font-size: 30px; /* icon ছোট করা হলো */
+    color: #078b8e;
+}
+
+/* Text */
+body.services-page .service-card .service-title {
+    font-size: 20px; /* বড় title */
+    font-weight: bold;
+    margin: 0;
+}
+
+body.services-page .service-card .service-desc {
+    font-size: 14px; /* ছোট description */
+    color: #ccc;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+    body.services-page .service-card {
+        flex: 0 1 100%;
+    }
+
+    body.services-page header nav a {
+        font-size: 16px;
+    }
+}
+
+
+
+
+
+
+/* ===== Portfolio Page ===== */
+body.portfolio-page {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+/* Header - same as Home page */
+body.portfolio-page header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #000;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+body.portfolio-page header .logo {
+    color: #078b8e;
+    font-size: 34px; /* Home page এর মতো */
+    font-weight: bold;
+    text-decoration: none;
+}
+
+body.portfolio-page header nav {
+    display: flex;
+    gap: 30px; /* Home page এর মতো gap */
+}
+
+body.portfolio-page header nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px; /* Home page এর মতো বড় */
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s;
+}
+
+body.portfolio-page header nav a:hover {
+    color: #078b8e;
+}
+
+body.portfolio-page header nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #078b8e;
+    left: 0;
+    bottom: -4px;
+    transition: width 0.3s;
+}
+
+body.portfolio-page header nav a:hover::after {
+    width: 100%;
+}
+
+/* Portfolio Hero */
+.portfolio-hero {
+    text-align: center;
+    padding: 150px 20px 50px;
+}
+
+.portfolio-hero h1 {
+    font-size: 50px;
+    font-weight: bold;
+    color: #fff;
+    margin: 0;
+}
+
+.portfolio-hero h1::after {
+    content: '';
+    display: block;
+    width: 10%;
+    height: 3px;
+    background-color: #078b8e;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* Portfolio Gallery */
+.portfolio-section {
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center alignment */
+    gap: 30px;
+}
+
+/* Portfolio Card */
+.portfolio-card {
+    background-color: #111;
+    border-radius: 15px;
+    overflow: hidden;
+    flex: 0 1 calc(33.33% - 20px); /* 3 per row */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    border: 2px solid #078b8e; /* Always visible border */
+    transition: transform 0.3s;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-5px); 
+    /* বড় box hover এ কোনো glow effect নেই */
+}
+
+/* Project Image */
+.portfolio-card img {
+    width: 100%;
+    border-radius: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.portfolio-card img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #078b8e; /* Image hover এ glow */
+}
+
+/* Project Title */
+.portfolio-card .project-title {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* Project Description */
+.portfolio-card .project-desc {
+    font-size: 14px;
+    color: #ccc;
+    margin-top: 5px;
+    line-height: 1.5;
+}
+
+/* Project Logo */
+.portfolio-card .project-logo {
+    margin-top: 10px;
+    color: #078b8e;
+    font-size: 24px;
+}
+
+/* Responsive */
+@media screen and (max-width: 1024px) {
+    .portfolio-card { flex: 0 1 calc(50% - 20px); }
+}
+
+@media screen and (max-width: 768px) {
+    .portfolio-card { flex: 0 1 100%; }
+    body.portfolio-page header nav a { font-size: 16px; }
+}
+
+
+
+
+
+
+/* ===== Contact Page ===== */ 
+body.contact-page {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+/* Header / Navbar - Home page style applied */
+.site-header {
+    background-color: #000;
+    padding: 20px 50px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.site-header .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-header .logo {
+    font-weight: bold;
+    font-size: 34px; /* Home page look */
+    color: #078b8e;
+    text-decoration: none;
+}
+
+.site-header .nav {
+    display: flex;
+    gap: 30px; /* Home page gap */
+}
+
+.site-header .nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px; /* Home page size */
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s;
+}
+
+.site-header .nav a:hover {
+    color: #078b8e;
+}
+
+.site-header .nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    background-color: #078b8e;
+    transition: width 0.3s;
+}
+
+.site-header .nav a:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.contact-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centered */
+    text-align: center;
+    padding: 80px 20px 40px;
+}
+
+.contact-hero p {
+    font-size: 20px;
+    color: #ccc;
+    margin: 0 0 10px;
+}
+
+.contact-hero h1 {
+    font-size: 50px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Line under hero h1 */
+.contact-hero .hero-line {
+    display: block;
+    width: 170px;
+    height: 4px;
+    background-color: #078b8e;
+    margin: 20px auto 0;
+    border-radius: 2px;
+}
+
+/* Contact Form Box */
+.contact-box {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto 50px;
+    background-color: #111;
+    padding: 40px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+/* Contact Form */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Input Rows */
+.input-row {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.input-row input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid transparent; /* Default no border */
+    background-color: #000;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+.input-row input::placeholder {
+    color: #ccc;
+}
+
+/* Input Hover */
+.input-row input:hover {
+    border-color: #078b8e;
+    box-shadow: 0 0 15px #078b8e; /* glow on hover */
+}
+
+/* Textarea */
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid transparent; /* Default no border */
+    background-color: #000;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+.contact-form textarea::placeholder {
+    color: #ccc;
+}
+
+/* Textarea Hover */
+.contact-form textarea:hover {
+    border-color: #078b8e;
+    box-shadow: 0 0 15px #078b8e; /* glow */
+}
+
+/* Button */
+.contact-form button {
+    padding: 15px 40px;
+    background-color: #078b8e;
+    color: #fff;
+    font-weight: bold;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    align-self: center; /* Center button */
+    transition: all 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #000;
+    color: #078b8e;
+    border: 2px solid #078b8e;
+    box-shadow: 0 0 15px #078b8e;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .input-row {
+        flex-direction: column;
+        align-items: center;
+    }
+    .input-row input {
+        width: 100%;
+    }
+    .site-header .nav a {
+        font-size: 16px;
+    }
+}
+
+
+
+
